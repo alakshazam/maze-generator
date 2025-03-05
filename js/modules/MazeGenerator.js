@@ -2,8 +2,8 @@ import { Cell } from '/maze-generator/js/modules/Cell.js';
 import { MazeRenderer } from '/maze-generator/js/modules/MazeRenderer.js';
 
 export class MazeGenerator {
-    constructor(width, height, cellSize) {
-        this.canvas = document.getElementById('mazeCanvas');
+    constructor(canvas, width, height, cellSize) {
+        this.canvas = canvas;
         this.cellSize = cellSize;
         this.cols = Math.floor(width / cellSize);
         this.rows = Math.floor(height / cellSize);

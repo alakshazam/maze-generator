@@ -6,29 +6,24 @@ let mazeSolver;
 
 function resetCanvas() {
     const canvas = document.getElementById('mazeCanvas');
-    // Store original dimensions
-    const originalWidth = canvas.width;
-    const originalHeight = canvas.height;
+    const width = Math.min(window.innerWidth - 100, 500);
+    const height = Math.min(window.innerHeight - 100, 500);
     
-    // Reset canvas by recreating it
-    const newCanvas = document.createElement('canvas');
-    newCanvas.id = 'mazeCanvas';
-    newCanvas.width = originalWidth;
-    newCanvas.height = originalHeight;
+    // Set canvas dimensions
+    canvas.width = width;
+    canvas.height = height;
     
-    // Replace old canvas
-    canvas.parentNode.replaceChild(newCanvas, canvas);
-    return newCanvas;
+    return canvas;
 }
 
 function initMaze() {
     console.log('Initializing maze...');
     const cellSize = 25;
-    const width = Math.min(window.innerWidth - 100, 500);
-    const height = Math.min(window.innerHeight - 100, 500);
     
-    // Completely destroy and recreate canvas
-    const freshCanvas = resetCanvas();
+    // Reset canvas and get dimensions
+    const canvas = resetCanvas();
+    const width = canvas.width;
+    const height = canvas.height;
     
     // Nullify existing instances
     if (mazeSolver) {
@@ -41,7 +36,7 @@ function initMaze() {
     }
     
     // Create completely new instances
-    mazeGen = new MazeGenerator(width, height, cellSize);
+    mazeGen = new MazeGenerator(canvas, width, height, cellSize);
     mazeGen.generate();
     
     // Create new solver with fresh state
