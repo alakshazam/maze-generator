@@ -1,5 +1,5 @@
-import { Cell } from './Cell.js';
-import { MazeRenderer } from './MazeRenderer.js';
+import { Cell } from '/maze-generator/js/modules/Cell.js';
+import { MazeRenderer } from '/maze-generator/js/modules/MazeRenderer.js';
 
 export class MazeGenerator {
     constructor(width, height, cellSize) {

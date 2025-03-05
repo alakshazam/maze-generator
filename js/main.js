@@ -1,5 +1,5 @@
-import { MazeGenerator } from './modules/MazeGenerator.js';
-import { MazeSolver } from './modules/MazeSolver.js';
+import { MazeGenerator } from '/maze-generator/js/modules/MazeGenerator.js';
+import { MazeSolver } from '/maze-generator/js/modules/MazeSolver.js';
 
 let mazeGen;
 let mazeSolver;
